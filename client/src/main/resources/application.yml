@@ -1,11 +1,12 @@
-spring:
-  application:
-    name: fcat-user
-
 server:
-  port: 8761
+  port: 8762
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8760/eureka/
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10

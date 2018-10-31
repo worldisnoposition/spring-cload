@@ -2,6 +2,9 @@ package com.controller;
 
 import demo.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,20 +16,38 @@ import javax.annotation.PostConstruct;
 @RestController
 public class MyRestController {
     @Autowired
+    private RestTemplateBuilder builder;
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        System.out.println("aaaaaaa");
+        return builder.build();
+    }
+
+    @Autowired
+    @LoadBalanced
     private RestTemplate restTemplate;
 
     public String findById() {
-        return restTemplate.getForObject("http://localhost:1003/hello1/hello",String.class);
+        return restTemplate.getForObject("http://eureka-server/hello1/hello",String.class);
+//        return restTemplate.getForObject("http://hello-service/hello1",String.class);
+
     }
 
     @PostConstruct
     public void init(){
-        System.out.println(findById());
+//        System.out.println(findById());
     }
 
     @RequestMapping("/hello")
     public String hello() {
-        return "hello";
+        return findById();
+    }
+
+    @RequestMapping("/hello1")
+    public String hello1() {
+        return "hello1";
     }
 
     @RequestMapping(value = "/person/{personId}", method = RequestMethod.GET, produces =

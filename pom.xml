@@ -10,6 +10,8 @@
         <module>main</module>
         <module>server</module>
         <module>client</module>
+        <module>my-elasticsearch</module>
+        <module>kryo-test</module>
     </modules>
     <packaging>pom</packaging>
 

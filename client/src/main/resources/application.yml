@@ -1,0 +1,16 @@
+#management:
+#  security:
+#    enabled: false
+#info:
+#  app:
+#    name: haha
+#management:
+#  server:
+#    port: 8083  #自定义actuator端口
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  info:
+#    git:
+#      mode: simple

@@ -12,6 +12,8 @@
         <module>client</module>
         <module>my-elasticsearch</module>
         <module>kryo-test</module>
+        <module>microservice-simple-provider-user</module>
+        <module>hsf-spring-server</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -46,11 +48,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.projectlombok</groupId>-->
+            <!--<artifactId>lombok</artifactId>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
